@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace WindBreaker_Brennan
@@ -86,6 +87,68 @@ namespace WindBreaker_Brennan
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        private void LoadLevel()
+        {
+            List<string> lines = ReadFileAsStrings(@"Content/level1.txt");
+            sprites[] currentlevel[]
+
+            foreach (string line in lines)
+            {
+                foreach(char c in line)
+                {
+                    switch(c)
+                    {
+                        case 'v': // spikes facing VVVV
+
+                            break;
+
+                        case '^': // spikes facing ^^^^
+
+                            break;
+
+                        case '<': // spikes facing <<<<
+
+                            break;
+
+                        case '>': // spikes facing >>>>
+
+                            break;
+
+
+                        case 'O': // blocks
+
+                            break;
+                    }
+                }
+            }
+
+        }
+        private List<string> ReadFileAsStrings(string path)
+        {
+            List<string> lines = new List<string>();
+
+            try
+            {
+                // Create an instance of StreamReader to read from a file.
+                // The using statement also closes the StreamReader.
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+
+                        lines.Add(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write("The file could not be read: \n" + e.Message);
+            }
+
+            return lines;
         }
     }
 }
