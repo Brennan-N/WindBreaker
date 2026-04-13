@@ -36,6 +36,7 @@ namespace Windbreaker_Evan
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            IsMouseVisible = true;
             playerpos = new Rectangle(100, 200, 100, 100);
 
 
@@ -52,7 +53,7 @@ namespace Windbreaker_Evan
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            placeholder = this.Content.Load<Texture2D>("WhiteBox");
+            
 
         }
 
