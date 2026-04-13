@@ -129,7 +129,7 @@ namespace WindBreaker_Brennan
                             currentlevel[count.X, count.Y] = null;
                             break;
 
-                        case '.' // AIR
+                        case '.': // AIR
                             currentlevel[count.X, count.Y] = null;
                             break;
                     }
