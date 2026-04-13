@@ -32,6 +32,10 @@ namespace WindBreaker_Brennan
         /// related content.  Calling base.Initialize will enumerate through any components
         /// and initialize them as well.
         /// </summary>
+        /// 
+
+        Texture2D bg;
+
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -48,7 +52,7 @@ namespace WindBreaker_Brennan
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            bg = this.Content.Load<Texture2D>("background");
         }
 
         /// <summary>
@@ -93,15 +97,17 @@ namespace WindBreaker_Brennan
         {
             List<string> lines = ReadFileAsStrings(@"Content/level1.txt");
             sprites[] currentlevel[]
+            Vector2 count = new Vector2(0,0);
 
             foreach (string line in lines)
             {
+                
                 foreach(char c in line)
                 {
                     switch(c)
                     {
                         case 'v': // spikes facing VVVV
-
+                            currentlevel[count.X, count.Y] = 
                             break;
 
                         case '^': // spikes facing ^^^^
@@ -120,8 +126,14 @@ namespace WindBreaker_Brennan
                         case 'O': // blocks
 
                             break;
+
+                        case '.' // AIR
+                            currentlevel[count.X, count.Y] = null;
+                            break;
                     }
+                    count.Y++;
                 }
+                count.X++;
             }
 
         }
