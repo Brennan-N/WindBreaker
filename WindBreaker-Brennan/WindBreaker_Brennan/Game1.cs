@@ -88,7 +88,9 @@ namespace WindBreaker_Brennan
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(bg, new Rectangle(100,100,100,100), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
@@ -96,7 +98,7 @@ namespace WindBreaker_Brennan
         private void LoadLevel()
         {
             List<string> lines = ReadFileAsStrings(@"Content/level1.txt");
-            sprites[] currentlevel[]
+            sprites[] currentlevel[];
             Vector2 count = new Vector2(0,0);
 
             foreach (string line in lines)
@@ -107,24 +109,24 @@ namespace WindBreaker_Brennan
                     switch(c)
                     {
                         case 'v': // spikes facing VVVV
-                            currentlevel[count.X, count.Y] = 
+                            currentlevel[count.X, count.Y] = null;
                             break;
 
                         case '^': // spikes facing ^^^^
-
+                            currentlevel[count.X, count.Y] = null;
                             break;
 
                         case '<': // spikes facing <<<<
-
+                            currentlevel[count.X, count.Y] = null;
                             break;
 
                         case '>': // spikes facing >>>>
-
+                            currentlevel[count.X, count.Y] = null;
                             break;
 
 
                         case 'O': // blocks
-
+                            currentlevel[count.X, count.Y] = null;
                             break;
 
                         case '.' // AIR
