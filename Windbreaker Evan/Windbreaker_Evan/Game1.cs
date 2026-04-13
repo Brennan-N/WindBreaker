@@ -53,7 +53,7 @@ namespace Windbreaker_Evan
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            
+            placeholder = this.Content.Load<Texture2D>("WhiteBox");
 
         }
 
